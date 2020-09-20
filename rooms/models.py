@@ -59,7 +59,7 @@ class Photo(core_models.TimeStampedModel):
 
     caption = models.CharField(max_length=80)
     file = models.ImageField()
-    room = models.ForeignKey("Room", related_name="photo", on_delete=models.CASCADE)
+    room = models.ForeignKey("Room", related_name="photos", on_delete=models.CASCADE)
     # python은 위에서부터 코드를 읽기 때문에 "" 없이 쓰려면 class Room 아래에 있어야 함
 
     def __str__(self):
