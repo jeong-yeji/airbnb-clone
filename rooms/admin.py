@@ -78,7 +78,7 @@ class RoomAdmin(admin.ModelAdmin):
     filter_horizontal = ("amenities", "facilities", "house_rules")  # 다대다 관계에서 작동하는 필터
 
     def count_amenities(self, obj):  # self: RoomAdmin, obj: current row
-        print(obj.amenities.all())
+        return obj.amenities.count()
 
 
 @admin.register(models.Photo)
