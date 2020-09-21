@@ -60,6 +60,7 @@ class RoomAdmin(admin.ModelAdmin):
         "instant_book",
         "count_amenities",
         "count_photos",
+        "total_rating",
     )
 
     # 우선순위 정해서 정렬해서 보여주기
