@@ -135,3 +135,7 @@ STATIC_URL = "/static/"
 
 # 우리가 만든 User Model을 사용하려면 AUTH_USER_MODEL 변경 필요
 AUTH_USER_MODEL = "users.User"
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
+
+MEDIA_URL = "/media/"
