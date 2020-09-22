@@ -15,11 +15,17 @@ class ItemAdmin(admin.ModelAdmin):
     def used_by(self, obj):
         return obj.rooms.count()
 
+class PhotoInline(admin.TabularInline):
+
+    model = models.Photo
+
 
 @admin.register(models.Room)
 class RoomAdmin(admin.ModelAdmin):
 
     """ Room Admin Definition """
+
+    inlines = (PhotoInline, )
 
     fieldsets = (
         (
@@ -78,6 +84,8 @@ class RoomAdmin(admin.ModelAdmin):
         "city",
         "country",
     )
+
+    raw_id_fields = ("host",) # UserAdmin을 통해 host를 id값으로 볼 수 있게 해줌
 
     search_fields = ("=city", "^host__username")
 
