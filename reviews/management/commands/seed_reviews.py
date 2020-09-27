@@ -35,4 +35,4 @@ class Command(BaseCommand):
             },
         )
         seeder.execute()
-        self.stdout.write(self.style.SUCCESS(f"{number} reviews created!"))
+        self.stdout.write(self.style.SUCCESS(f"{number} reviews created!"), 2)
