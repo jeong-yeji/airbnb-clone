@@ -6,6 +6,7 @@ Home
 
 {% block content %}}
 
+<!-- python code 이용 - button
 {% for room in rooms %}
 <h1>{{room.name}} / ${{room.price}}</h1>
 {% endfor %}
@@ -19,11 +20,28 @@ Home
     <a href="?page={{page|add:1}}">Next</a>
     {% endif %}
 </h5>
+-->
 
-<!--
+<!-- python code 이용 - list
 {% for page in page_range %}
 <a href="?page={{page}}">{{page}}</a>
 {% endfor %}
 -->
 
-{% endblock %}
+{% for room in page.object_list %}
+<h1>{{room.name}} / ${{room.price}}</h1>
+{% endfor %}
+
+<h5>
+    {% if page.has_previous %}
+    <a href="?page={{page.previous_page_number}}">Previous</a>
+    {% endif %}
+
+    Page {{page.number}} of {{page.paginator.num_pages}}
+
+    {% if page.has_next %}
+    <a href="?page={{page.next_page_number}}">Next</a>
+    {% endif %}
+</h5>
+
+{% endblock content %}
