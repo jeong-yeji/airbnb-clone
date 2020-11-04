@@ -18,6 +18,7 @@ class LoginForm(forms.Form):
         except models.User.DoesNotExist:
             self.add_error("email", forms.ValidationError("User does not exist"))
 
+
 class SignUpForm(forms.ModelForm):
     class Meta:
         model = models.User
@@ -41,4 +42,15 @@ class SignUpForm(forms.ModelForm):
         user.username = email
         user.set_password(password)
         user.save()
-        
+     
+
+"""
+# Django의 UserCreationForm 사용하는 법
+from django.contrib.auth.forms import UserCreationForm
+
+class SignUpForm(UserCreationForm):
+    class Meta:
+        models = models.User
+
+    username = forms.EmailField(label="Email")
+"""
