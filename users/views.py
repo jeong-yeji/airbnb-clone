@@ -62,7 +62,6 @@ def complete_verification(request, key):
 def github_login(request):
     client_id = os.environ.get("GH_ID")
     redirect_uri = "http://127.0.0.1:8000/users/login/github/callback"
-    print("깃허브 로그인")
     return redirect(
         f"https://github.com/login/oauth/authorize?client_id={client_id}&redirect_uri={redirect_uri}&scope=read:user"
     )
@@ -85,7 +84,6 @@ def github_callback(request):
             token_json = token_request.json()
             error = token_json.get("error", None)
             if error is not None:
-                print("깃허브 error is not None")
                 raise GithubException()
             else:
                 access_token = token_json.get("access_token")
@@ -105,7 +103,6 @@ def github_callback(request):
                     try:
                         user = models.User.objects.get(email=email)
                         if user.login_method != models.User.LOGIN_GITHUB:
-                            print("깃허브 login_method is not LOGIN_GITHUB")
                             raise GithubException()
                     except models.User.DoesNotExist:
                         user = models.User.objects.create(
@@ -121,10 +118,8 @@ def github_callback(request):
                     login(request, user)
                     return redirect(reverse("core:home"))
                 else:
-                    print("깃허브 username is None")
                     raise GithubException()
         else:
-            print("깃허브 code is None")
             raise GithubException()
     except GithubException:
         # send error message
