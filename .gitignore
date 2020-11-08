@@ -139,3 +139,4 @@ cython_debug/
 
 # 무시할 파일 설정
 uploads/
+node_modules/

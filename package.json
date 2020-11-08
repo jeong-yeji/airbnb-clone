@@ -1,0 +1,31 @@
+{
+  "name": "airbnb-clone",
+  "version": "1.0.0",
+  "description": "ICanMembership / nomadcoders - Cloning Airbnb using Python, Django, Tailwind and more..",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeong-yeji/airbnb-clone.git"
+  },
+  "scripts": {
+    "css": "gulp"
+  },
+  "homepage": "https://github.com/jeong-yeji/airbnb-clone#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.0.1",
+    "gulp": "^4.0.2",
+    "gulp-csso": "^4.0.1",
+    "gulp-postcss": "^9.0.0",
+    "gulp-sass": "^4.1.0",
+    "node-sass": "^5.0.0",
+    "tailwindcss": "^1.9.6"
+  },
+  "bugs": {
+    "url": "https://github.com/jeong-yeji/airbnb-clone/issues"
+  },
+  "main": "gulpfile.js",
+  "dependencies": {
+    "postcss": "^8.1.6"
+  },
+  "author": "",
+  "license": "ISC"
+}
