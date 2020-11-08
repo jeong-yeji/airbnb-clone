@@ -133,6 +133,8 @@ TIME_ZONE = "Asia/Seoul"
 
 STATIC_URL = "/static/"
 
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+
 # 우리가 만든 User Model을 사용하려면 AUTH_USER_MODEL 변경 필요
 AUTH_USER_MODEL = "users.User"
 
