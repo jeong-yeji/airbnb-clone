@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+
 {% block page_title %}
 {{room.name}}
 {% endblock page_title %}
@@ -7,14 +8,12 @@
 {% block content %}
 
 <div class="-mt-5 container max-w-full h-75vh flex mb-20">
-    <div class="h-full w-1/2 bg-cover bg-center" style="background-image: url({{room.first_photo}})"></div>
+    <div class="h-full w-1/2 bg-center bg-cover" style="background-image:url({{room.first_photo}})"></div>
     <div class="h-full w-1/2 flex flex-wrap">
-
-        {% for photo in room.get_next_four_photos  %}
-        <div class="w-1/2 h-auto bg-cover bg-center border-gray-500 border"
-            style="background-image: url({{photo.file.url}})"></div>
+        {% for photo in room.get_next_four_photos %}
+        <div style="background-image:url({{photo.file.url}})"
+            class="w-1/2 h-auto bg-cover bg-center border-gray-700 border"></div>
         {% endfor %}
-
     </div>
 </div>
 
@@ -48,14 +47,14 @@
         </div>
         <div class="border-section">
             <h4 class="font-medium text-lg mb-5">Facilities</h4>
-            {% for f in room.facilities.all %}
-            <li class="mb-2">{{f}}</li>
+            {% for a in room.facilities.all %}
+            <li class="mb-2">{{a}}</li>
             {% endfor %}
         </div>
         <div class="border-section">
             <h4 class="font-medium text-lg mb-5">House Rules</h4>
-            {% for r in room.house_rules.all %}
-            <li class="mb-2">{{r}}</li>
+            {% for a in room.house_rules.all %}
+            <li class="mb-2">{{a}}</li>
             {% endfor %}
         </div>
         <div class="mt-10">
@@ -72,15 +71,11 @@
                 </div>
             </div>
             <div class="mt-10">
-<<<<<<< HEAD
-=======
-
->>>>>>> 03b4cf313815677aef0718191b325721ba6e659c
-                {% for review in room.reviews.all %}
+                {% for review in room.reviews.all  %}
                 <div class="border-section">
                     <div class="mb-3 flex">
                         <div>
-                            {% include "mixins/user_avatar.html" with user=review.user h_and_w='h-10 w-10' text='text-xl' %}
+                            {% include "mixins/user_avatar.html" with user=review.user h_and_w='w-10 h-10' text='text-xl' %}
                         </div>
                         <div class="flex flex-col ml-5">
                             <span class="font-medium">{{review.user.first_name}}</span>
@@ -90,10 +85,6 @@
                     <p>{{review.review}}</p>
                 </div>
                 {% endfor %}
-<<<<<<< HEAD
-=======
-
->>>>>>> 03b4cf313815677aef0718191b325721ba6e659c
             </div>
         </div>
     </div>
